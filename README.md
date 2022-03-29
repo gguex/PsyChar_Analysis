@@ -9,5 +9,5 @@ Two plays by William Shakespeare are currently tested:
 Leads:
 
 - Defining psychological profiles with the help of LIWC (https://www.liwc.app/) text tools.
-- Using the character networks.
+- Using character networks.
 - (to complete).
