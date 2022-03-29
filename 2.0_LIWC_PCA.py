@@ -6,6 +6,8 @@ from matplotlib import pyplot as plt
 
 # On which book
 book_name = "Hamlet"
+# Min word count
+min_wc = 1000
 # Perform PCA on covariance or correlation matrix
 PCA_on_cor = True
 # Axes to focus on
@@ -24,6 +26,9 @@ liwc_df.index = [index_name[:-4] for index_name in liwc_df.index]
 
 # Removing constant columns
 liwc_df = liwc_df.loc[:, liwc_df.apply(pd.Series.nunique) > 1]
+
+# Removing row with not enough WC
+liwc_df = liwc_df.loc[liwc_df["WC"] > min_wc, :]
 
 # Extracting row names, columns name, matrix data, and dimensions
 row_names = list(liwc_df.index)
