@@ -11,7 +11,7 @@ PCA_on_cor = True
 # Axes to focus on
 axes = (0, 1)
 # Save results df
-save_res_df = True
+save_res_df = False
 
 
 # --- Loading and preprocessing
