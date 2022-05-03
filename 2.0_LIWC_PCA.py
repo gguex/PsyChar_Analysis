@@ -13,7 +13,7 @@ PCA_on_cor = True
 # Axes to focus on
 axes = (0, 1)
 # Save results df
-save_res_df = False
+save_res_df = True
 ## Kept column names
 # For "Summary Language Variable" only
 kept_col_list = ["Analytic", "Clout", "Authentic", "Tone", "WPS", "Sixltr", "Dic"]
