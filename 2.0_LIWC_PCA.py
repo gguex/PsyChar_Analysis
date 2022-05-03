@@ -29,6 +29,7 @@ kept_col_list = ["Analytic", "Clout", "Authentic", "Tone", "WPS", "Sixltr", "Dic
 #                  "money", "relig", "death", "swear", "netspeak", "assent", "nonflu", "Period", "Comma", "Colon",
 #                  "SemiC", "QMark", "Exclam", "Dash", "Quote", "Apostro", "OtherP"]
 
+
 # --- Loading and preprocessing
 
 # Loading LIWC df
