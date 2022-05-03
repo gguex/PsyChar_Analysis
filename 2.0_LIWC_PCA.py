@@ -7,14 +7,27 @@ from matplotlib import pyplot as plt
 # On which book
 book_name = "Hamlet"
 # Min word count
-min_wc = 1000
+min_wc = 500
 # Perform PCA on covariance or correlation matrix
 PCA_on_cor = True
 # Axes to focus on
 axes = (0, 1)
 # Save results df
 save_res_df = False
-
+## Kept column names
+# For "Summary Language Variable" only
+kept_col_list = ["Analytic", "Clout", "Authentic", "Tone", "WPS", "Sixltr", "Dic"]
+# For "Super categories" only
+# kept_col_list = ["funct", "verb", "adj", "compare", "interrog", "number", "quant", "affect", "social", "cogproc",
+#                  "percept", "bio", "drives", "relativ", "informal", "AllPunc"]
+# For "Sub categories" only
+# kept_col_list = ["pronoun", "article", "prep", "auxverb", "adverb", "conj", "negate", "verb", "adj", "compare",
+#                  "interrog", "number", "quant", "posemo", "negemo", "anx", "anger", "sad", "family", "friend",
+#                  "female", "male", "insight", "cause", "discrep", "tentat", "certain", "differ", "see", "hear",
+#                  "feel", "body", "health", "sexual", "ingest", "affiliation", "achieve", "power", "reward", "risk",
+#                  "focuspast", "focuspresent", "focusfuture", "motion", "space", "time", "work", "leisure", "home",
+#                  "money", "relig", "death", "swear", "netspeak", "assent", "nonflu", "Period", "Comma", "Colon",
+#                  "SemiC", "QMark", "Exclam", "Dash", "Quote", "Apostro", "OtherP"]
 
 # --- Loading and preprocessing
 
@@ -29,6 +42,13 @@ liwc_df = liwc_df.loc[:, liwc_df.apply(pd.Series.nunique) > 1]
 
 # Removing row with not enough WC
 liwc_df = liwc_df.loc[liwc_df["WC"] > min_wc, :]
+
+# Check in there is a missing column to remove
+for kept_col_name in kept_col_list:
+    if kept_col_name not in list(liwc_df.columns):
+        print(f"Warning: {kept_col_name} is not in column names")
+# Removing columns
+liwc_df = liwc_df.loc[:, [col_name in kept_col_list for col_name in liwc_df.columns]]
 
 # Extracting row names, columns name, matrix data, and dimensions
 row_names = list(liwc_df.index)
