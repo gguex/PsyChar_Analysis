@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 # --- Parameters
 
 # On which book
-book_name = "Hamlet"
+book_name = "kaggle_mbti"
 # Min word count
 min_wc = 500
 # Perform PCA on covariance or correlation matrix
@@ -14,13 +14,18 @@ PCA_on_cor = True
 axes = (0, 1)
 # Save results df
 save_res_df = True
-## Kept column names
-# For "Summary Language Variable" only
-kept_col_list = ["Analytic", "Clout", "Authentic", "Tone", "WPS", "Sixltr", "Dic"]
-# For "Super categories" only
+## -- Kept column names
+# For "Summary Language Variable" only (coarser):
+
+# kept_col_list = ["Analytic", "Clout", "Authentic", "Tone", "WPS", "Sixltr", "Dic"]
+
+# For "Super categories" only (intermediate):
+
 # kept_col_list = ["funct", "verb", "adj", "compare", "interrog", "number", "quant", "affect", "social", "cogproc",
 #                  "percept", "bio", "drives", "relativ", "informal", "AllPunc"]
-# For "Sub categories" only
+
+# For "Sub categories" only (finer):
+
 # kept_col_list = ["pronoun", "article", "prep", "auxverb", "adverb", "conj", "negate", "verb", "adj", "compare",
 #                  "interrog", "number", "quant", "posemo", "negemo", "anx", "anger", "sad", "family", "friend",
 #                  "female", "male", "insight", "cause", "discrep", "tentat", "certain", "differ", "see", "hear",
